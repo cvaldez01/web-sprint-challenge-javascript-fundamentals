@@ -17,7 +17,7 @@ function myFunction() {
 myFunction();
 
 // Explanation: 
-
+Because the "internal" variable is within the scope of the Myfunction.
 
 /* Task 2: Counter */
 
