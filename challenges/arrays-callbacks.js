@@ -22,9 +22,10 @@ Populate the displayNames array with only the animal_name and scientific_name of
 displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-const displayNames = zooAnimals.forEach(function(item){
-  return item.animal_name, item.scientific_name;
-});
+const displayNames = [];
+zooAnimals.forEach(function(item){
+  return displayNames.push([`Name:${item.animal_name}, Scientific:${item.scientific_name}`]);
+}); 
 /*const animalsNameAndScientficName= Array
 zooAnimals.forEach(animal=>{[animal.animal_name,animal.scientific_name]},{
   
@@ -52,7 +53,7 @@ Using filter, create a new array of objects called lowPopulationAnimals which co
 
 */
 const  lowPopulationAnimals=zooAnimals.filter(function(item){
-  return item.population <= 5;
+  return item.population < 5;
 },0);
 console.log(lowPopulationAnimals);
 
@@ -79,7 +80,11 @@ console.log(populationTotal);
   * The last parameter accepts a callback
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
+function consume(a,b,cb){
+  
+  return cb(a,b)
 
+}
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
@@ -87,11 +92,22 @@ console.log(populationTotal);
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
 
+function add(num1,num2){
+  return num1 + num2;
+}
+function multiply(num1,num2){
+  return num1 * num2;
+}
+function greeting(name,last){
+  return `Hello${name} ${last},nice to meet you`;
+}
+
+
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+console.log(consume(2, 2, add)); // 4
+console.log(consume(10, 16, multiply)); // 160
+console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 
